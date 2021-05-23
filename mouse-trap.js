@@ -1,10 +1,10 @@
 export function createCircle() {
-    document.body.addEventListener('click', (event) => {
+    addEventListener('click', (event) => {
         let div = document.createElement('div')
         div.style.background = 'white'
         div.className = 'circle'
-        div.style.left = event.clientX+"px"
-        div.style.top = event.clientY+"px"
+        div.style.left = event.clientX-25+"px"
+        div.style.top = event.clientY-25+"px"
         document.body.appendChild(div)
     })
 }
