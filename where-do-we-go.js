@@ -1,4 +1,4 @@
-import { places } from './data.js';
+import { places } from './where-do-we-go.data.js';
 export function explore() {
     for (let i = 0; i < places.length; i++) {
 
