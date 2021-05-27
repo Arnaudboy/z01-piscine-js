@@ -19,13 +19,13 @@ function fusionArray(arg1, arg2) {
 
 function fusionObject(arg1, arg2) {
     for(const key in arg2){
-        if(key in arg1 && Array.isArray(arg1[key]) && Array.isArray(arg1[key])){
+        if(key in arg1 && Array.isArray(arg1[key]) && Array.isArray(arg2[key])){
             arg1[key] = fusionArray(arg1[key], arg2[key])
         }
-        else if(key in arg1 && typeof arg1[key] === 'string'&& typeof arg1[key] === 'string'){
+        else if(key in arg1 && typeof arg1[key] === 'string'&& typeof arg2[key] === 'string'){
             arg1[key] = fusionString(arg1[key], arg2[key])
         }
-        else if(key in arg1 && typeof arg1[key] === 'number'&& typeof arg1[key] === 'number'){
+        else if(key in arg1 && typeof arg1[key] === 'number'&& typeof arg2[key] === 'number'){
             arg1[key] = fusionNumber(arg1[key], arg2[key])
         }
         else if(key in arg1 && Object.prototype.toString.call(arg1[key]) === '[object Object]' && Object.prototype.toString.call(arg2[key]) === '[object Object]') {
