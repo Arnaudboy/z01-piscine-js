@@ -18,7 +18,7 @@ function reduceKeys(db, fn, start) {
     let output = ''
     let acc =  start === undefined ? Object.keys(db)[0] : start
     for(const key of Object.keys(db)){
-        if(key !== Object.keys(db)[0]){
+        if(key !== Object.keys(db)[0] || start !== undefined){
             output = fn(acc, key)
             acc = fn(acc, key) 
         }       
