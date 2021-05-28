@@ -14,9 +14,9 @@ function mapValues(db, fn) {
     return obj
 }
 
-function reduceValues(db, accumulator=0) {
+function reduceValues(db, fn, start=0) {
     for(const key in db) {
-        accumulator += db[key]
+        start = fn(start, db[key])
     }
-    return accumulator
+    return start
 }
