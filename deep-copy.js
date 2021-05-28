@@ -1,22 +1,10 @@
-function deepCopy(obj){
-    console.log(obj)
-    if(Array.isArray(obj)){return copyArray(obj)}
-    else {return copyObject(obj)}
-}
-
-const copyArray = input => {
-    let arr = []
-    for(let i = 0; i < input.length; i++){
-        if(Array.isArray(input[i])){copyArray(input[i])}
-        arr[i] = input[i]
+function deepCopy(arg){
+    let result = Array.isArray(arg) ? [] : {}
+    for (let key in arg) {
+      if(Object.prototype.toString.call(arg[key]) === '[object Object]' || Object.prototype.toString.call(arg[key]) === '[object Array]')
+        result[key] = deepCopy(arg[key])
+      else
+        result[key] = arg[key]
     }
-    console.log(arr)
-    return arr
-}
-const copyObject = input => {
-    let res = {}
-    for(const [key, value] of Object.entries(input)){
-        res[key] = value
-    }
-    return res
+    return result
 }
