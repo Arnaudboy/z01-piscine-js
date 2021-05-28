@@ -25,8 +25,27 @@ function reduceEntries(obj, fn) {
 function lowCarbs(obj){
     let res = {}
     for(const [key, value] of Object.entries(nutritionDB)){
-        console.log(key, value.carbs)
-        if(key in obj && value.carbs < 50){res[key] = obj[key]}
+        if(key in obj && value.carbs*(obj[key]/100) < 50){res[key] = obj[key]}
+    }
+    return res
+}
+
+function totalCalories(obj){
+    let res = 0
+    for(const [key, value] of Object.entries(nutritionDB)){
+        if(key in obj){res += Math.round(value.calories*obj[key])}
+    }
+    return res/100
+}
+
+function cartTotal(obj){
+    let res = {}
+    for(const [key, value] of Object.entries(nutritionDB)){
+        if(key in obj){
+            let specs = {}
+            Object.keys(value).forEach(val => specs[val] = (Math.round((value[val]*(obj[key]))*100))/10000)
+            res[key] = specs
+        }
     }
     return res
 }
