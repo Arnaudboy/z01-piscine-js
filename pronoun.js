@@ -1,6 +1,6 @@
 const pro = ['i', 'you', 'he', 'she', 'it', 'we', 'they']
 function pronoun(str) {
-    str = str.toLowerCase().replace(/(\n)/g, ' ').replaceAll(',', '').split(' ')
+    str = str.toLowerCase().replace(/(\n)/g, ' ').split(' ')
     let res  = {}
     for(let i=0; i<str.length; i++){
         if(pro.includes(str[i])){
