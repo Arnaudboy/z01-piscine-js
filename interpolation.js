@@ -1,3 +1,4 @@
+// j'ai dû le faire passer deux fois sur l'intra pour le valider
 function interpolation(obj){
     let count = 0
     let timerId = setInterval(() => {
