@@ -9,3 +9,9 @@ function currify(func) {
       }
     }
   }
+
+  // const currify = callback => {
+  //   return function curried(...args) {
+  //     return args.length >= callback.length ? callback.apply(this, args) : (...args2) => curried.apply(this, [...args, ...args2])
+  //   }
+  // }
